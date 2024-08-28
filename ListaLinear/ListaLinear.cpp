@@ -122,9 +122,28 @@ void inserirElemento()
 
 void excluirElemento()
 {
+	int valor;
+	cout << "Digite o elemento que deseja excluir: ";
+	cin >> valor;
 
+	for (int i = 0; i < nElementos; i++) { //Faz a busca nos elementos da lista 
+		if (lista[i] == valor) { //Atribui o valor digitado pelo usuário a uma posição do array 
+			for (int j = i; j < nElementos - 1; j++) { //Navega até o penúltimo item da lista (Caso fizesse "nElementos" sem colocar o -1, poderia dar erros inesperados) 
+				lista[j] = lista[j + 1]; // Cópia o valor do array sucessor para o antecessor, desse jeito apagando o valor escolhido
+			}
+			nElementos--; // Apaga o último elemento, agora clonado 
+			cout << "Elemento excluido com sucesso." << endl;
+			return; 
+		}
+	}
 
+	
+	cout << "Elemento nao encontrado na lista." << endl;
 }
+
+	
+	
+
 
 void buscarElemento()
 {
